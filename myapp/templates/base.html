@@ -1,0 +1,38 @@
+{% load static %}
+<html>
+	<head>
+		<title>Homepage</title>
+		<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!-- 		<link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+ -->		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- 		<script src="{% static 'js/materialize.min.js' %}"></script>
+ -->		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	</head>
+
+	<body>	
+
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v9.0&appId=192559934438796&autoLogAppEvents=1" nonce="AyQT4Ldw"></script>
+
+	<nav class="teal">
+	    <div class="nav-wrapper">
+	      <a href="/" class="brand-logo">Blogging</a>
+	      <ul id="nav-mobile" class="right hide-on-med-and-down">
+	        <li><a href="/">Home</a></li>
+	        <li><a href="/addblog/">Add New Blog</a></li>
+	        {% if not user.is_authenticated %}
+	        	<li><a href="/signin/">Signin</a></li>
+	        {% else %}
+	        <li><a href="/signout/">Signout</a></li>
+	        {% endif %}
+	      </ul>
+	    </div>
+  	</nav>
+  		<div class="container">
+ 		{% block content %}
+ 		{% endblock %}
+ 		</div>
+
+	</body>
+</html>

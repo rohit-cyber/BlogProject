@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<h1>Blog details</h1>
+
+{% for i in blog %}
+	<img src="{{i.banner.url}}" alt="Blog bannner" /><br>
+	{{i.title}}<br>
+	{{i.author}}<br>
+	{{i.dop}}<br>
+	{% lorem 3 p random %}
+{% endfor %}
+
+<br><br>
+<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+
+<div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="" data-numposts="3"></div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<h1>Login Page</h1>
+	<form method="post">{% csrf_token %}
+		<label for="username">Username</label>
+		<input type="text" name="username" autocomplete="off" autofocus required/>
+		<label for="password">Password</label>
+		<input type="password" name="password" autocomplete="off" required />
+		<button class="btn waves-effect waves-light" type="submit" name="action">Login
+    <i class="material-icons right">send</i>
+  	</button>
+	</form>
+
+	Not a registered user? <a href="/signup/"> Signup here</a>
+{% endblock %}
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    $('input.autocomplete').autocomplete({
+      data: {
+        "Apple": null,
+        "Microsoft": null,
+        "Google": 'https://placehold.it/250x250'
+      },
+    });
+  });
+</script>
+<script src="{% static 'js/myscript.min.js' %}"></script>
